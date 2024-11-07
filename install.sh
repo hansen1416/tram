@@ -34,3 +34,6 @@ pip install imageio[ffmpeg]
 pip install numpy==1.26
 pip install gdown
 
+# sudo apt-get install libgl1
+# vim /home/ubuntu/anaconda3/envs/tram/lib/python3.10/site-packages/chumpy/__init__.py
+
