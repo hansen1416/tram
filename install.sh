@@ -9,7 +9,7 @@ sudo apt-get install libgl1
 # https://gist.github.com/MihailCosmin/affa6b1b71b43787e9228c25fe15aeba
 conda install pytorch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 pytorch-cuda=12.4 -c pytorch -c nvidia
 pip install 'git+https://github.com/hansen1416/detectron2.git@a59f05630a8f205756064244bf5beb8661f96180'
-pip install "git+https://github.com/hansen1416/pytorch3d.git@stable"
+pip install "git+https://github.com/hansen1416/facebookresearch.git@stable"
 
 conda install pytorch-scatter -c pyg
 conda install -c conda-forge suitesparse
