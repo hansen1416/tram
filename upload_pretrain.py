@@ -95,5 +95,5 @@ def folder_uploader_sync(folder_path, bucket_name, oss_endpoint):
 folder_uploader_sync(
     os.path.join(".", "data"),
     "tram-hlz",
-    "oss-ap-southeast-1.aliyuncs.com",
+    "oss-ap-southeast-1-internal.aliyuncs.com",
 )
