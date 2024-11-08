@@ -3,7 +3,6 @@ import sys
 import pathlib
 from typing import List
 
-import tqdm
 import oss2
 from oss2 import SizedFileAdapter, determine_part_size
 from oss2.models import PartInfo
