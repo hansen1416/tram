@@ -40,10 +40,9 @@ def folder_uploader_sync(folder_path, bucket_name, oss_endpoint):
     auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())
     bucket = oss2.Bucket(auth, oss_endpoint, bucket_name, connect_timeout=30)
 
-    print(f"Total files to upload: {len(all_files)}")
-
     # upload all files
-    for i, filepath in enumerate(tqdm.tqdm(all_files, desc="Uploading files")):
+    for i, filepath in enumerate(all_files):
+
         if not os.path.isfile(filepath):
             continue
 
@@ -80,10 +79,14 @@ def folder_uploader_sync(folder_path, bucket_name, oss_endpoint):
                 offset += num_to_upload
                 part_number += 1
 
-        # bucket.put_object_from_file(
-        #     target_path,
-        #     filepath,
-        # )
+                # show progress
+                print(
+                    f"\r{i+1}/{len(all_files)}: {target_path} -> {bucket_name} {offset}/{total_size}",
+                    end="",
+                )
+
+            print()
+
         headers = dict()
 
         bucket.complete_multipart_upload(target_path, upload_id, parts, headers=headers)
