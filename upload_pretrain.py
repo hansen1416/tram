@@ -1,11 +1,12 @@
 import os
-import os
 import sys
 import pathlib
 from typing import List
 
 import tqdm
 import oss2
+from oss2 import SizedFileAdapter, determine_part_size
+from oss2.models import PartInfo
 from oss2.credentials import EnvironmentVariableCredentialsProvider
 from dotenv import load_dotenv
 
@@ -53,10 +54,39 @@ def folder_uploader_sync(folder_path, bucket_name, oss_endpoint):
             # print(f"{self.process_idx}: {target_path} already exists in oss")
             continue
 
-        bucket.put_object_from_file(
-            target_path,
-            filepath,
-        )
+        total_size = os.path.getsize(filepath)
+        # Use the determine_part_size method to determine the part size.
+        part_size = determine_part_size(total_size, preferred_size=100 * 1024)
+
+        upload_id = bucket.init_multipart_upload(target_path).upload_id
+
+        parts = []
+
+        # Upload the parts.
+        with open(filepath, "rb") as fileobj:
+            part_number = 1
+            offset = 0
+            while offset < total_size:
+                num_to_upload = min(part_size, total_size - offset)
+                # Use the SizedFileAdapter(fileobj, size) method to generate a new object and recalculate the position from which the append operation starts.
+                result = bucket.upload_part(
+                    target_path,
+                    upload_id,
+                    part_number,
+                    SizedFileAdapter(fileobj, num_to_upload),
+                )
+                parts.append(PartInfo(part_number, result.etag))
+
+                offset += num_to_upload
+                part_number += 1
+
+        # bucket.put_object_from_file(
+        #     target_path,
+        #     filepath,
+        # )
+        headers = dict()
+
+        bucket.complete_multipart_upload(target_path, upload_id, parts, headers=headers)
 
 
 folder_uploader_sync(
