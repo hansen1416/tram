@@ -7,6 +7,9 @@ from typing import List
 import tqdm
 import oss2
 from oss2.credentials import EnvironmentVariableCredentialsProvider
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def folder_uploader_sync(folder_path, bucket_name, oss_endpoint):
