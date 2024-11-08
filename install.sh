@@ -4,9 +4,9 @@
 
 # conda install nvidia/label/cuda-11.8.0::cuda-toolkit -y # you can disable this if you already have cuda-11.8
 # conda install pytorch torchvision torchaudio pytorch-cuda -c pytorch -c nvidia -y
+sudo apt-get install libgl1
 # becareful with the driver version (eg. 535, 565) and the cuda version (eg. 11.8, 11.1), the cuda version could require a specific driver version
 # https://gist.github.com/MihailCosmin/affa6b1b71b43787e9228c25fe15aeba
-# conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 conda install pytorch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 pytorch-cuda=12.4 -c pytorch -c nvidia
 pip install 'git+https://github.com/facebookresearch/detectron2.git@a59f05630a8f205756064244bf5beb8661f96180'
 pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
@@ -34,6 +34,5 @@ pip install imageio[ffmpeg]
 pip install numpy==1.26
 pip install gdown
 
-# sudo apt-get install libgl1
 # vim /home/ubuntu/anaconda3/envs/tram/lib/python3.10/site-packages/chumpy/__init__.py
 
