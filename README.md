@@ -74,7 +74,9 @@ In addition, the pipeline includes [Detectron2](https://github.com/facebookresea
 ## Docker
 
 ```
-docker run -d --gpus all hansen1416/tram:latest tail -f /dev/null
+docker run -d --gpus all --name tram hansen1416/tram:latest tail -f /dev/null
+
+docker exec -it tram /bin/bash
 
 vim /miniconda/envs/tram/lib/python3.10/site-packages/chumpy/__init__.py
 
