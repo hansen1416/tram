@@ -51,7 +51,7 @@ def folder_download_sync(bucket_name, oss_endpoint, target_path="./"):
 
 
 folder_download_sync(
-    "tram-hlz",
+    "workout-videos",
     "oss-ap-southeast-1.aliyuncs.com",
-    "data",
+    "videos",
 )
