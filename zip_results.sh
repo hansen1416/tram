@@ -26,7 +26,7 @@ for dir in */; do
     dir_name="${dir%/}"
     # Create a zip file with the same name as the directory
     tar -xzvf "${dir_name}.tar.gz" "$dir_name"
-    echo "Zipped $dir_name to ${dir_name}.zip"
+    echo "Zipped $dir_name to ${dir_name}.tar.gz"
   fi
 done
 
