@@ -25,7 +25,7 @@ for dir in */; do
     # Remove the trailing slash from the directory name
     dir_name="${dir%/}"
     # Create a zip file with the same name as the directory
-    tar -xzvf "${dir_name}.tar.gz" "$dir_name"
+    tar cvzf "${dir_name}.tar.gz" "$dir_name"
     echo "Zipped $dir_name to ${dir_name}.tar.gz"
   fi
 done
