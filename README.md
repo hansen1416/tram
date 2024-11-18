@@ -71,8 +71,19 @@ We benefit greatly from the following open source works, from which we adapted p
 
 In addition, the pipeline includes [Detectron2](https://github.com/facebookresearch/detectron2), [Segment-Anything](https://github.com/facebookresearch/segment-anything), and [DEVA-Track-Anything](https://github.com/hkchengrex/Tracking-Anything-with-DEVA).
 
+## Docker
 
-  
+```
+docker run -d --gpus all hansen1416/tram:latest tail -f /dev/null
+
+vim /miniconda/envs/tram/lib/python3.10/site-packages/chumpy/__init__.py
+
+from numpy import nan, inf
+import numpy as np
+unicode=np.unicode_
+
+```
+
 ## Citation
 ```bibtex
 @article{wang2024tram,
