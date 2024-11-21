@@ -33,7 +33,6 @@ pip install pytorch-minimize
 pip install imageio[ffmpeg]
 pip install numpy==1.26
 pip install gdown
-# pip install oss2
 
 # "https://download.pytorch.org/models/resnet50-19c8e357.pth" to /home/hlz/.cache/torch/hub/checkpoints/resnet50-19c8e357.pth
 # "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/hlz/.cache/torch/hub/checkpoints/resnet18-5c106cde.pth
