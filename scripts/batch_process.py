@@ -24,9 +24,9 @@ for f in files:
 
     # List of commands to run
     commands = [
-        ["python", "scripts/estimate_camera.py", "--video", video_path],
-        ["python", "scripts/estimate_humans.py", "--video", video_path],
-        # ["python", "scripts/visualize_tram.py", "--video", video_path],
+        # ["python", "scripts/estimate_camera.py", "--video", video_path],
+        # ["python", "scripts/estimate_humans.py", "--video", video_path],
+        ["python", "scripts/visualize_tram.py", "--video", video_path],
     ]
 
     for command in commands:
