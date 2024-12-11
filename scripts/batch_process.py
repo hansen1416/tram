@@ -13,12 +13,20 @@ for f in files:
 
     file_name = f.split(".")[0]
 
-    # check if the results already exists
-    if os.path.exists(os.path.join(results_folder, file_name)):
-        print(f"{f} already processed")
+    video_name = os.path.join(results_folder, file_name, "tram_output.mp4")
+
+    if os.path.exists(video_name):
+        print(f"{f} video already processed")
         continue
     else:
-        print(f"{f} in process")
+        print(f"{f} video in process")
+
+    # # check if the results already exists
+    # if os.path.exists(os.path.join(results_folder, file_name)):
+    #     print(f"{f} already processed")
+    #     continue
+    # else:
+    #     print(f"{f} in process")
 
     video_path = os.path.join(target_folder, f)
 
